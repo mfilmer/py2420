@@ -57,9 +57,19 @@ if __name__ == '__main__':
 		V[i] = float(s[begin:mid])
 		I[i] = float(s[(mid+1):end])*1e6
 
+	
+	# Calculate max power
+	P = [v*i for (v,i) in zip(V,I)]
+	maxP = max(P)
+	maxPI = P.index(maxP)
+	print('Max Power: ' + num2str(maxP))
+	print('  V = ' num2str(V[maxPI]))
+	print('  I = ' num2str(I[maxPI]))
 
 	# Make a plot
 	fig, ax = plt.subplots()
 	ax.plot(V,I)
 	ax.set(xlabel='Voltage [v]', ylabel='Current (uA)', title='Diode')
 	plt.show();
+
+
